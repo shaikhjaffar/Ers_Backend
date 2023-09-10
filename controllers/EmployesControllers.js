@@ -145,14 +145,8 @@ const GetEmployeeById = (req,res) =>{
 
  const singup = (req,res)=>{
     Employee.findOne({Email:req.body.email})
-    .then(emp => { 
-        if(emp === null){
-             res.status(403)
-          res.json({
-            "message":"Email is already Used"
-          })
-        }
-        else {
+    .then(emp => {
+         if(emp === null){
             const employee = new Employee({
                 _id:new mongoose.Types.ObjectId,
                 name:req.body.name,
@@ -162,14 +156,19 @@ const GetEmployeeById = (req,res) =>{
                 phone:req.body.phone
             })
             employee.save()
-            .then(emp => {
+            .then(emp1 => {
                 res.json({
-                    emp,
+                    emp1,
                     "message":"Account Creadted SucessFully"
                 })
             })
-    
-        }
+         }
+         else {
+            res.status(403)
+            res.json({
+              "message":"Email is already Used"
+            })
+         }
      })
    
  }
