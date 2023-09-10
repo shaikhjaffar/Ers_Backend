@@ -156,6 +156,22 @@ const GetEmployeeById = (req,res) =>{
          })
      })
  }
+
+ const uploadImage = (req,res)=>{
+ Employee.updateOne({_id:req.body.id},{
+    $set:{
+        image:req.file.path
+    }
+ })
+ .then(Employe => {
+    res.json({
+       Employe,
+       "message":"Image Uploaded Sucessfully"
+    })
+})
+
+
+ }
  
 
 
@@ -167,5 +183,6 @@ module.exports ={
     RemoveEmployee,
     updateEmployee,GetEmployeeById,
     updatePass,updateDesig,
-    updatedFeedback
+    updatedFeedback,
+    uploadImage,upload
 }

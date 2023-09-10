@@ -13,5 +13,6 @@ route.post('/GetEmployeeById',EmployeeController.GetEmployeeById)
 route.post('/newPassword',EmployeeController.updatePass)
 route.post('/changeDesig',EmployeeController.updateDesig)
 route.post('/feedback',EmployeeController.updatedFeedback)
+route.post('/uploadImage',EmployeeController.upload,EmployeeController.uploadImage)
 
 module.exports = route
