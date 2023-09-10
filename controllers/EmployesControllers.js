@@ -146,7 +146,7 @@ const GetEmployeeById = (req,res) =>{
  const singup = (req,res)=>{
     Employee.findOne({Email:req.body.email})
     .then(emp => { 
-        if(emp){
+        if(emp === null){
           res.json({
             "message":"Email is already Used"
           })
