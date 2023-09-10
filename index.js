@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 
-const PORT = process.env.PORT || 3000
+// const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(express.urlencoded({extended : false}))
@@ -17,6 +17,6 @@ db.on('error',(error) => console.log(error))
 db.once("open", ()=>console.log("connected to database"))
 
 
-app.listen(PORT,()=>{
-    console.log(`Server started at http://localhost:${PORT}`) //for the checking Port
-})
+//app.listen(PORT,()=>{
+   // console.log(`Server started at http://localhost:${PORT}`) //for the checking Port
+//})
