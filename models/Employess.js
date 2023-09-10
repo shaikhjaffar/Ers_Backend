@@ -64,9 +64,6 @@ const Employess = new  mongoose.Schema({
         type :String,
         required:true
     },
-    image : {
-        type :String
-    },
      Review:[Performance],
     created :{
         type : Date,
