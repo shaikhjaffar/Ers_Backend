@@ -5,12 +5,12 @@ const mongoose = require('mongoose')
 
 const PORT = process.env.PORT || 3000
 const app = express()
-
+app.use(cors())
 app.use(express.urlencoded({extended : false}))
 app.use(express.json())
 app.use(express.static('uploads'))
 app.use("",require('./routes/route'))
-app.use(cors({ origin: "https://employee-review-system-bto7.onrender.com/", credentials: true }))
+
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser:true})
 
